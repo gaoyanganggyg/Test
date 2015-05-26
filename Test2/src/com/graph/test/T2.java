@@ -8,28 +8,13 @@ import java.util.Queue;
 public class T2 {
 	static final int SIZE = 4;
 	static boolean[] visted = new boolean[SIZE];
-static List<Node> list = new ArrayList<>();
+	static List<Node> list = new ArrayList<>();
 	static Queue<Integer> queue = new ArrayDeque<>();
 	
+	/**
+	 * 图的邻接表广度优先搜索
+	 */
 	private static void BFS(){
-//		queue.offer(0);
-//		for(int i = 0; i < SIZE; i++){
-//			if(! visted[i]){
-//				if(queue.size() != 0){
-//					Node node = list.get(queue.peek());
-//					System.out.println(node.data);
-//					visted[queue.poll()] = true;
-//					Edge edge = node.next;
-//					while(edge != null){
-//						queue.offer(edge.vex);
-//						Node node1 = list.get(queue.peek());
-//						System.out.println(node1.data);
-//						visted[queue.poll()] = true;
-//						edge = edge.next;
-//					}
-//				}
-//			}
-//		}
 		queue.offer(0);
 			while(queue.size() != 0){
 				if(! visted[queue.peek()]){
