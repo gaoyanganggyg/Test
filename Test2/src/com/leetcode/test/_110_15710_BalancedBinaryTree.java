@@ -33,14 +33,12 @@ public class _110_15710_BalancedBinaryTree {
 		TreeNode l12 = new TreeNode(2);
 		TreeNode l13 = new TreeNode(3);
 		l11.left = l12;
-		l11.right = l13;
+		l12.right = l13;
 		System.out.println(isBalanced(l11));
 	}
 
 	public static boolean isBalanced(TreeNode root) {
 		if (null == root)
-			return true;
-		if (root.left == null && root.right == null)
 			return true;
 		if (Math.abs(heightOfBiTree(root.left) - heightOfBiTree(root.right)) > 1)
 			return false;
