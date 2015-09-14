@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+	
+	<constant name="struts.multipart.maxSize" value="1073741824"/>
+
+	<package name="default" extends="struts-default">
+		<!-- 获取农作物类型 -->
+		<action name="getCropType" class="com.farm.action.CropTypeAction"
+			method="getCropType">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">info</param>
+			</result>
+		</action>
+		<!--讲堂分类  -->
+		<action name="getCropInfoType" class="com.farm.action.CropInfoTypeAction"
+			method="getCropInfoType">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">info</param>
+			</result>
+		</action>
+		<!--客户端获取讲堂内容 -->
+		<action name="getCropInfos" class="com.farm.action.CropInfoAction"
+			method="getCropInfos">
+			<result name="success">lecture-cla.jsp</result>
+			<result name="error">lecture.jsp</result>
+		</action>
+		<!--讲堂内容详细信息  -->
+		<action name="getCropInfoDetail" class="com.farm.action.CropInfoAction"
+			method="getCropInfoDetail">
+			<result name="success">lecture-info.jsp</result>
+			<result name="error">lecture.jsp</result>
+		</action>
+		
+		<!--手机获取讲堂信息列表  -->
+		<action name="getCropInfoJson" class="com.farm.action.CropInfoAction"
+			method="getCropInfoJson">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">info</param>
+			</result>
+		</action>
+		<!--手机获取讲堂详细信息 -->
+		<action name="getCropInfoDetailJson" class="com.farm.action.CropInfoAction"
+			method="getCropInfoDetailJson">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">info</param>
+			</result>
+		</action>
+		
+	</package>
+
+	<package name="manage" namespace="/manage" extends="struts-default">
+		<!-- 管理员添加讲堂信息  -->
+		<action name="insertCropInfo" class="com.farm.action.CropInfoAction"
+			method="insertCropInfo">
+			<result name="success">cropInfo_add.jsp</result>
+			<result name="error">cropInfo_add.jsp</result>
+		</action>
+		<!--管理员删除讲堂记录  -->
+		<action name="deleteCropInfo" class="com.farm.action.CropInfoAction"
+			method="deleteCropInfo">
+			<result name="success">index.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+		<!--讲堂内容详细信息  -->
+		<action name="getCropInfoDetail" class="com.farm.action.CropInfoAction"
+			method="getCropInfoDetail">
+			<result name="success">cropInfo_edit.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+		<!--管理员修改讲堂信息  -->
+		<action name="updateCropInfo" class="com.farm.action.CropInfoAction"
+			method="updateCropInfo">
+			<result name="success">cropInfo_list_m.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+		<!--管理员获取讲堂信息列表  -->
+		<action name="adminGetCropInfo" class="com.farm.action.CropInfoAction"
+			method="adminGetCropInfo">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">info</param>
+			</result>
+		</action>
+		<!--讲堂信息总记录数和总页数  -->
+		<action name="getCropInfoCount" class="com.farm.action.CropInfoAction"
+			method="getCropInfoCount">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">info</param>
+			</result>
+		</action>
+		
+		<!--管理员将视屏信息保存到数据库-->
+		<action name="saveVideo" class="com.farm.action.CropVideoAction"
+			method="saveVideo">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					video/x-msvideo,video/mpeg,video/quicktime,video/x-sgi-movie,video/mpeg,
+					video/x-flv,video/x-matroska,video/mp4,video/x-f4v,
+					image/png,image/jpeg,image/jpg,image/gif,image/bmp 
+				</param>
+				<param name="maximumSize">1073741824</param> <!--1G-->
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="success">video_add.jsp</result>
+			<result name="error">video_add.jsp</result>
+		</action>
+		
+		<!-- 视屏分类 -->
+		<action name="getVideoType" class="com.farm.action.VideoTypeAction"
+			method="getVideoTypes">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">info</param>
+			</result>
+		</action>
+		
+		<!-- 视屏分类 -->
+		<action name="getVideoCount" class="com.farm.action.CropVideoAction"
+			method="getVideoCount">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">info</param>
+			</result>
+		</action>
+		
+		<!-- 视屏列表 -->
+		<action name="getCropVideoList" class="com.farm.action.CropVideoAction"
+			method="getCropVideoList">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">info</param>
+			</result>
+		</action>
+		<!-- 删除视频 -->
+		<action name="deleteVideo" class="com.farm.action.CropVideoAction"
+			method="deleteVideo">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">info</param>
+			</result>
+		</action>
+		
+		
+		
+	</package>
+
+</struts>

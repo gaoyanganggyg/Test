@@ -70,14 +70,4 @@ public class _112_15710_PathSum {
 		return isLeftTrue || isRightTrue;
 	}
 
-	public static class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
-
 }

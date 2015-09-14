@@ -54,13 +54,5 @@ public class _110_15710_BalancedBinaryTree {
 		return Math.max(left, right);
 	}
 
-	static class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
 
-		TreeNode(int x) {
-			val = x;
-		}
-	}
 }

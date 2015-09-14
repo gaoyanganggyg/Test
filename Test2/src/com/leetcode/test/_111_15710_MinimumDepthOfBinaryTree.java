@@ -61,13 +61,5 @@ public class _111_15710_MinimumDepthOfBinaryTree {
 		return count;
 	}
 
-	public static class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
 
-		TreeNode(int x) {
-			val = x;
-		}
-	}
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<encache>
+	<diskStore path="java.io.temdir"/>
+	<!--配置默认缓冲区-->
+	<defaultCache
+		maxElementsInMemory="10000"
+		eternal="false"
+		timeToIdleSeconds="120"
+		timeToLiveSeconds="120"
+		maxElementsOnDisk="10000000"
+		diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU"/>
+	<!--配置users缓冲区-->
+	<cache name="users"
+		maxElementsInMemory="10000"
+		eternal="false"
+		timeToIdleSeconds="300"
+		timeToLiveSeconds="600"/>
+</encache>
